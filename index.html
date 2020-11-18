@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- main css -->
+	
+  <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="styles.css" />
+
+  <!-- font awesome -->
+  <link rel="stylesheet" href="css/all.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"
+charset="utf-8"></script>
+  <title>shopping flowers</title>
+<style>
+  .lang_switcher{
+    float:right;
+    overflow:hidden;}
+	#nav {
+  background-color: #333;
+  
+  top: 0;
+  width: 100%;
+  display: block;
+  transition: top 0.3s;
+		z-index: 100;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+	#about{
+		margin-top: 50px;
+	}
+</style>
+</head>
+
+<body>
+  
+  <header>
+  
+	  <div id="nav">
+    <nav class="navbar navbar-expand-lg px-4 fixed-top " id="myTopnav navbar navbar-expand-sm bg-dark navbar-dark sticky-top ">
+      <a class="navbar-brand" href="#"><img src="img/logo.png" width="60px" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNav">
+        <span class="toggler-icon"><i class="fas fa-bars"></i></span>
+      </button>
+     
+      <a class="navbar-brand" href="#"><img src="img/login.png" width="60px" alt="" data-toggle="modal" data-target="#myModal2"></a>
+      
+      <div class="collapse navbar-collapse" >
+        <ul class="navbar-nav mx-auto text-capitalize">
+          <li class="nav-item active">
+            <a key="home" class="nav-link tr" href="#">home</a>
+          </li>
+          <li class="nav-item tr">
+            <a key="about" class="nav-link tr " href="#">about</a>
+          </li>
+          <li class="nav-item">
+            <a  key="store" class="nav-link tr" href="#">store</a>
+          </li>
+			 
+        </ul>
+        <div class="lang_switcher">
+          <button id="en" class="lang">EN</button>
+          <button id="ar" class="lang">AR</button>
+      </div>
+      
+        <div class="nav-info-items d-none d-lg-flex ">
+          <!-- single info -->
+<!-- المكان الي فيه وصف ايش بالسله
+          <div class="nav-info align-items-center d-flex justify-content-between mx-lg-5">
+          
+            
+          </div>
+-->
+          <!-- end of single info -->
+          <!-- single info -->
+			<div  id="cart-info" class="nav-info align-items-center cart-info d-flex justify-content-between mx-lg-5">
+            <span class="cart-info__icon mr-lg-3"><i class="fas fa-shopping-cart" class="btn btn-primary" data-toggle="modal" data-target="#myModal"></i></span>
+	   
+          <div id="cart-info" class="nav-info align-items-center cart-info d-flex justify-content-between mx-lg-5">
+			  
+			   (<span class="total-count data-toggle="modal" data-target="#cart""></span>)
+<!--			  <i class="fa fa-shopping-cart cart flt-right btn btn-default " style="font-size:25px;margin-left:30px;" data-toggle="modal" data-target="#cart"><sup id="count" class="total-count" style="font-size:20px">0</sup></i>-->
+<!--            <span class="cart-info__icon mr-lg-3"><i class="fas fa-shopping-cart cart   btn" data-toggle="modal" data-target="#cart"><sup id="count" class="total-count" >0</sup></i></span>-->
+<!--			  <i class="fa fa-shopping-cart cart flt-right btn btn-default " style="font-size:25px;margin-left:30px;" data-toggle="modal" data-target="#cart"><sup id="count" class="total-count" style="font-size:20px">0</sup></i>-->
+			 
+  
+
+<!--            <p class="mb-0 text-capitalize"><span id="item-count">2 </span> items - $<span class="item-total">10.49</span></p>-->
+          </div>
+          <!-- end of single info -->
+        </div>
+      </div>
+    </nav>
+		  </div>
+   
+  <!-- Modal -->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Log In</h4>
+        </div>
+        <div class="modal-body">
+          <form name="login_form">
+            <p><input type="text" class="form-control" name="username" id="username" placeholder="Username" required></p>
+            <p><input type="password" class="form-control" name="password" id="password" placeholder="Password" required></p>
+            <p><input type="button" class="btn btn-primary" onclick="validate();" value="Sign in" />
+              <a href="#">Forgot Password?</a>
+            </p>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+    <!--end of  banner  -->
+		  <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold"> Details</h4>
+        
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+        
+           <table class="table table-bordered">
+  
+    <tbody>
+      <tr>
+        <td><img src="img/bouquet_PNG15.png" style="width:150px;height: 150px"></td>
+        <td>A flower bouquet can tell a story, it can send a message or it can bring joy. Therefore, we believe that flowers are the best choice when you want to give your loved ones a gift. Choose a bouquet of roses and chrysanthemums in warm colors, a bouquet that will prove you loved ones that you're always next to them. Order flowers online and we will help with the flower delivery at home in no time!</td>
+    
+      </tr>
+
+    </tbody>
+  </table>
+        </div>
+
+      
+
+      </div>
+			 
+  </header>
+  <!-- header -->
+  <!-- about us -->
+  <section class="about py-5" id="about">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-10 mx-auto col-md-6 my-5">
+          <h1 class="text-capitalize">about <strong class="banner-title ">us</strong></h1>
+          <p class="my-4 text-muted w-75">Flowers and plants are always appropriate, no matter the occasion. Whether you’re shopping for Mother's Day flowers for your mom or you want to surprise your husband at the office with a lush bonsai plant, we’ve got you covered. Browse indoor plants for sale perfect for the hardworking college student, bountiful bouquets filled to bursting with magnificent blooms, and designer floral arrangements you can’t find elsewhere. No matter the occasion our flowers and easy flower delivery will make you shine!</p>
+<!--          <a href="#" class="btn btn-outline-secondary btn-black text-uppercase ">explore</a>-->
+
+        </div>
+        <div class="col-10 mx-auto col-md-6 align-self-center my-5">
+          <div class="about-img__container">
+            <img src="img/bouquet_PNG51.png" class="img-fluid" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+	  <div class="container">
+
+
+  <!-- The Modal -->
+  <div class="modal" id="myModal" >
+    <div class="modal-dialog">
+      <div class="modal-content" >
+      
+        <!-- Modal Header -->
+        <div class="modal-header" >
+          <h4 class="modal-title section-header">CART</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+		  <section class="container content-section">
+        
+         <!-- Modal -->
+    <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="show-cart table">
+              
+            </table>
+            <div>Total price: $<span class="total-cart"></span></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Order now</button>
+          </div>
+        </div>
+      </div>
+    </div> 
+        <!-- Modal footer -->
+        <div class="modal-footer">
+			<button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+		  </section> 
+      </div>
+   
+  </div>
+  
+</div>
+
+
+  <!-- end of about us -->
+
+
+  <!-- store -->
+  <section id="store" class="store py-5">
+    <div class="container  content-section">
+		<div class="shop-items">
+      <!-- section title -->
+    
+      <!-- end of section title -->
+      <!--filter buttons -->
+      
+      <!-- search box -->
+    
+      <!--end of filter buttons -->
+      <!-- store  items-->
+      <div class="row" class="store-items" id="store-items">
+        <!-- single item -->
+        <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item sweets" data-item="sweets">
+          <div class="card ">
+            <div class="img-container">
+              <img src="img/bouquet_PNG33.png" class="card-img-top store-img shop-item-image" alt="">
+             <div class="select" id="sel0"><h1>select</h1></div>
+              <span class=" shop-item-button store-item-icon add-to-cart btn btn-primary  btn btn-primary "  data-name="Flower 2" data-price="30" type="span" onclick="document.getElementById('sel0').style.display= 'block' " >
+				 
+                <i class="fas fa-shopping-cart shop  my-btn"></i>
+              </span>
+				
+            </div>
+            <div class="card-body">
+              <div class="card-text d-flex justify-content-between text-capitalize">
+                <h5  class="card-title shop-item-title ">Flower1</h5>
+				  <a href=""  data-toggle="modal" class="btn btn-info" data-target="#modalLoginForm">  More Detials
+  </a>
+                <h5 class="card-text">$ <strong id="store-item-price" class="font-weight-bold shop-item-price">5</strong></h5>
+
+              </div>
+            </div>
+
+
+          </div>
+          <!-- end of card-->
+        </div>
+        <!--end of single store item-->
+        <!-- single item -->
+        <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item cupcakes" data-item="cupcakes">
+          <div class="card ">
+            <div class="img-container">
+              <img src="img/bouquet_PNG21.png" class="card-img-top store-img" alt="">
+              <div class="select" id="sel9"><h1>select</h1></div>
+               <span class="store-item-icon add-to-cart btn btn-primary" data-name="Flower 2" data-price="30" type="span" onclick="document.getElementById('sel9').style.display= 'block'">
+				   <i class="fas fa-shopping-cart shop  my-btn"></i>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-text d-flex justify-content-between text-capitalize">
+                <h5 id="store-item-name">Flower2</h5>
+				  <a href=""  data-toggle="modal" class="btn btn-info" data-target="#modalLoginForm">  More Detials
+  </a>
+                <h5 class="store-item-value">$ <strong id="store-item-price" class="font-weight-bold">5</strong></h5>
+
+              </div>
+            </div>
+
+
+          </div>
+          <!-- end of card-->
+        </div>
+        <!--end of single store item-->
+        <!-- single item -->
+        <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item cakes" data-item="cakes">
+          <div class="card ">
+            <div class="img-container">
+              <img src="img/bouquet_PNG54.png" class="card-img-top store-img" alt="">
+              <div class="select" id="sel8"><h1>select</h1></div>
+           <span class="store-item-icon add-to-cart btn btn-primary" data-name="Flower 2" data-price="30" type="span" onclick="document.getElementById('sel8').style.display= 'block'">
+			   <i class="fas fa-shopping-cart shop  my-btn"></i>
+              </span>
+            </div>
+			 
+            <div class="card-body">
+              <div class="card-text d-flex justify-content-between text-capitalize">
+                <h5 id="store-item-name">Flower3</h5>
+				  <a href=""  data-toggle="modal" class="btn btn-info" data-target="#modalLoginForm">  More Detials
+  </a>
+                <h5 class="store-item-value">$ <strong id="store-item-price" class="font-weight-bold">5</strong></h5>
+
+              </div>
+            </div>
+
+
+          </div>
+          <!-- end of card-->
+        </div>
+        <!--end of single store item-->
+        <!-- single item -->
+        <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item doughnuts" data-item="dougnuts">
+          <div class="card ">
+            <div class="img-container">
+              <img src="img/bouquet_PNG48.png" class="card-img-top store-img" alt="">
+              <div class="select" id="sel7"><h1>select</h1></div>
+               <span class="store-item-icon add-to-cart btn btn-primary" data-name="Flower 2" data-price="30" type="span" onclick="document.getElementById('sel7').style.display= 'block'">
+				   <i class="fas fa-shopping-cart shop  my-btn"></i>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-text d-flex justify-content-between text-capitalize">
+                <h5 id="store-item-name">Flower4</h5>
+				  <a href=""  data-toggle="modal" class="btn btn-info" data-target="#modalLoginForm">  More Detials
+  </a>
+                <h5 class="store-item-value">$ <strong id="store-item-price" class="font-weight-bold">5</strong></h5>
+
+              </div>
+            </div>
+
+
+          </div>
+          <!-- end of card-->
+        </div>
+        <!--end of single store item-->
+        <!-- single item -->
+		  
+        <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item sweets" data-item="sweets">
+          <div class="card ">
+            <div class="img-container">
+              <img src="img/bouquet_PNG17.png" class="card-img-top store-img" alt="">
+             <div class="select" id="sel6"><h1>select</h1></div>
+             <span class="store-item-icon add-to-cart btn btn-primary" data-name="Flower 2" data-price="30" type="span" onclick="document.getElementById('sel6').style.display= 'block'">
+				 <i class="fas fa-shopping-cart shop  my-btn"></i>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-text d-flex justify-content-between text-capitalize">
+                <h5 id="store-item-name">flower5</h5>
+				  <a href=""  data-toggle="modal" class="btn btn-info" data-target="#modalLoginForm">  More Detials
+  </a>
+                <h5 class="store-item-value">$ <strong id="store-item-price" class="font-weight-bold">10</strong></h5>
+
+              </div>
+            </div>
+
+
+          </div>
+          <!-- end of card-->
+        </div>
+        <!--end of single store item-->
+        <!-- single item -->
+        <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item cupcakes" data-item="cupcakes">
+          <div class="card ">
+            <div class="img-container">
+              <img src="img/bouquet_PNG37.png" class="card-img-top store-img" alt="">
+             <div class="select" id="sel5"><h1>select</h1></div>
+               <span class="store-item-icon add-to-cart btn btn-primary" data-name="Flower 2" data-price="30" type="span" onclick="document.getElementById('sel5').style.display= 'block'">
+				   <i class="fas fa-shopping-cart shop  my-btn"></i>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-text d-flex justify-content-between text-capitalize">
+                <h5 id="store-item-name">Flower6</h5>
+				  <a href=""  data-toggle="modal" class="btn btn-info" data-target="#modalLoginForm">  More Detials
+  </a>
+                <h5 class="store-item-value">$ <strong id="store-item-price" class="font-weight-bold">10</strong></h5>
+
+              </div>
+            </div>
+
+
+          </div>
+          <!-- end of card-->
+        </div>
+        <!--end of single store item-->
+        <!-- single item -->
+        <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item cakes" data-item="cakes">
+          <div class="card ">
+            <div class="img-container">
+              <img src="img/bouquet_PNG49.png" class="card-img-top store-img" alt="">
+             <div class="select" id="sel4"><h1>select</h1></div>
+              <span class="store-item-icon add-to-cart btn btn-primary" data-name="Flower 2" data-price="30" type="span" onclick="document.getElementById('sel4').style.display= 'block'">
+				  <i class="fas fa-shopping-cart shop  my-btn"></i>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-text d-flex justify-content-between text-capitalize">
+                <h5 id="store-item-name">Flower7</h5>
+				  <a href=""  data-toggle="modal" class="btn btn-info" data-target="#modalLoginForm">  More Detials
+  </a>
+                <h5 class="store-item-value">$ <strong id="store-item-price" class="font-weight-bold">10</strong></h5>
+
+              </div>
+            </div>
+
+
+          </div>
+          <!-- end of card-->
+        </div>
+        <!--end of single store item-->
+        <!-- single item -->
+        <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item doughnuts" data-item="dougnuts">
+          <div class="card ">
+            <div class="img-container">
+              <img src="img/bouquet_PNG27.png" class="card-img-top store-img">
+             <div class="select" id="sel3"><h1>select</h1></div>
+              <span class="store-item-icon add-to-cart btn btn-primary" data-name="Flower 2" data-price="30" type="span" onclick="document.getElementById('sel3').style.display= 'block'">
+				  <i class="fas fa-shopping-cart shop  my-btn"></i>
+              </span>
+				     
+            </div>
+            <div class="card-body">
+              <div class="card-text d-flex justify-content-between text-capitalize">
+                <h5 id="store-item-name">Flower8</h5>
+				   <a href=""  data-toggle="modal" class="btn btn-info" data-target="#modalLoginForm">  More Detials
+  </a>
+                <h5 class="store-item-value">$ <strong id="store-item-price" class="font-weight-bold">10</strong></h5>
+
+              </div>
+            </div>
+
+
+          </div>
+          <!-- end of card-->
+        </div>
+        <!--end of single store item-->
+        <!-- single item -->
+        <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item sweets" data-item="sweets">
+          <div class="card ">
+            <div class="img-container">
+              <img src="img/bouquet_PNG39.png" class="card-img-top store-img" alt="">
+              <div class="select" id="sel2"><h1>select</h1></div>
+               <span class="store-item-icon add-to-cart btn btn-primary" data-name="Flower 2" data-price="30" type="span" onclick="document.getElementById('sel2').style.display= 'block'">
+				   <i class="fas fa-shopping-cart shop  my-btn"></i>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-text d-flex justify-content-between text-capitalize">
+                <h5 id="store-item-name">Flower9</h5>
+				  <a href=""  data-toggle="modal" class="btn btn-info" data-target="#modalLoginForm">  More Detials
+  </a>
+                <h5 class="store-item-value">$ <strong id="store-item-price" class="font-weight-bold">15</strong></h5>
+
+              </div>
+            </div>
+
+
+          </div>
+          <!-- end of card-->
+        </div>
+        <!--end of single store item-->
+        <!-- single item -->
+        <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item cupcakes" data-item="cupcakes">
+          <div class="card ">
+            <div class="img-container">
+              <img src="img/bouquet_PNG15.png" class="card-img-top store-img" alt="">
+             <div class="select" id="sela"><h1>select</h1></div>
+               <span class="store-item-icon add-to-cart btn btn-primary" data-name="Flower 2" data-price="30" type="span" onclick="document.getElementById('sela').style.display= 'block'">
+				   <i class="fas fa-shopping-cart shop  my-btn"></i>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-text d-flex justify-content-between text-capitalize">
+                <h5 id="store-item-name">Flower10</h5>
+				  <a href=""  data-toggle="modal" class="btn btn-info" data-target="#modalLoginForm">  More Detials
+  </a>
+                <h5 class="store-item-value">$ <strong id="store-item-price" class="font-weight-bold">15</strong></h5>
+
+              </div>
+            </div>
+
+
+          </div>
+          <!-- end of card-->
+        </div>
+        <!--end of single store ite"img/bouquet_PNG13.png"m-->
+        <!-- single item -->
+        <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item cakes" data-item="cakes">
+          <div class="card ">
+            <div class="img-container">
+              <img src="img/bouquet_PNG29.png" class="card-img-top store-img" alt="">
+				<div class="select" id="sel1"><h1>select</h1></div>
+             <span class="store-item-icon add-to-cart btn btn-primary" data-name="Flower 2" data-price="30" type="span" onclick="document.getElementById('sel1').style.display= 'block'">
+				 <i class="fas fa-shopping-cart shop  my-btn"></i>
+              </span>
+              
+            </div>
+            <div class="card-body">
+              <div class="card-text d-flex justify-content-between text-capitalize">
+                <h5 id="store-item-name">Flower11</h5>
+                <a href=""  data-toggle="modal" class="btn btn-info" data-target="#modalLoginForm">  More Detials
+                </a>
+                              <h5 class="store-item-value">$ <strong id="store-item-price" class="font-weight-bold">10</strong></h5>
+              
+
+              </div>
+            </div>
+
+
+          </div>
+          <!-- end of card-->
+        </div>
+        <!--end of single store item-->
+        <!-- single item -->
+        <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item doughnuts" data-item="dougnuts">
+          <div class="card ">
+            <div class="img-container">
+              <img src="img/bouquet_PNG55 (1).png" class="card-img-top store-img" alt="">
+				<div class="select" id="sel"><h1>select</h1></div>
+               <span data-name="Orange" data-price="0.5" class="store-item-icon add-to-cart btn btn-primary"  type="span" onclick="document.getElementById('sel').style.display= 'block'">
+				   <i class="fas fa-shopping-cart shop  my-btn"></i>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-text d-flex justify-content-between text-capitalize">
+                <h5 id="store-item-name" class="card-title">وردة12</h5>
+                <a href=""  data-toggle="modal" class="btn btn-info" data-target="#modalLoginForm">  More Detials
+                </a>
+                              <h5 class="store-item-value">$ <strong id="store-item-price" class="font-weight-bold">10</strong></h5>
+              
+              </div>
+            </div>
+
+
+          </div>
+          <!-- end of card-->
+        </div>
+        <!--end of single store item-->
+
+      </div>
+  </section>
+  <!--end of store items -->
+
+
+  <!-- modal-container -->
+  <div class="container-fluid ">
+    <div class="row lightbox-container align-items-center">
+      <div class="col-10 col-md-10 mx-auto text-right lightbox-holder">
+        <span class="lightbox-close"><i class="fas fa-window-close"></i></span>
+        <div class="lightbox-item"></div>
+        <span class="lightbox-control btnLeft"><i class="fas fa-caret-left"></i></span>
+        <span class="lightbox-control btnRight"><i class="fas fa-caret-right"></i></span>
+      </div>
+
+    </div>
+  </div>
+	  </div>
+	 <center> <h1 class="text-capitalize">contact <strong class="banner-title ">us</strong></h1> </center>
+	  	<section class="contact_us">
+	<table class="table">
+  
+  <tbody>
+    <tr>
+      <th scope="row">email</th>
+      
+      <td>somia@gmail.com</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">phone</th>
+      <td>77543454</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">website</th>
+      <td>www.somia.com</td>
+      
+      
+    </tr>
+  </tbody>
+</table>
+	  </section>
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">السابق</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">التالي</a>
+    </li>
+  </ul>
+</nav>
+	  
+	  <script>
+		  var pre=window.pageYOffset;
+		  window.onscroll=function(){
+			  var currentscrool=window.pageYOffset;
+			if(pre>currentscrool){
+				  document.getElementById("nav").style.top="0";
+			  		
+			}
+			else
+				document.getElementById("nav").style.top="-80px";
+			 
+			 pre=currentscrool;
+			  
+		  }
+	  </script>
+
+			
+
+<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	<script src="assets/js/flyto.js"></script>
+    <script>
+        $('.row').flyto({
+            item      : 'li',
+            target    : '.cart',
+            span    : '.add-to-cart'
+        });
+		
+
+    </script>
+	<!--/ js -->
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>	
+
+ 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="storeTest.js" async></script>
+	
+<!--
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+-->
+
+<!--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.18.1/dist/sweetalert2.all.min.js"></script>-->
+<!--<script src="https://www.gstatic.com/firebasejs/6.2.3/firebase.js"></script>-->
+<!--<script src="main.js"></script>-->
+
+
+<!--<script src="flowerJavascript.js"></script>-->
+  <!-- jquery -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <!-- bootstrap js -->
+<!--  <script src="js/bootstrap.bundle.min.js"></script>-->
+  <!-- script js -->
+<!--  <script src="js/app.js"></script>-->
+	      <script src="js/jquery-2.2.4.min.js"></script>
+    <script>
+    // ************************************************
+// Shopping Cart API
+// ************************************************
+
+var shoppingCart = (function() {
+  // =============================
+  // Private methods and propeties
+  // =============================
+  cart = [];
+  
+  // Constructor
+  function Item(name, price, count) {
+    this.name = name;
+    this.price = price;
+    this.count = count;
+  }
+  
+  // Save cart
+  function saveCart() {
+    sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
+  }
+  
+    // Load cart
+  function loadCart() {
+    cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
+  }
+  if (sessionStorage.getItem("shoppingCart") != null) {
+    loadCart();
+  }
+  
+
+  // =============================
+  // Public methods and propeties
+  // =============================
+  var obj = {};
+  
+  // Add to cart
+  obj.addItemToCart = function(name, price, count) {
+    for(var item in cart) {
+      if(cart[item].name === name) {
+        cart[item].count ++;
+        saveCart();
+        return;
+      }
+    }
+    var item = new Item(name, price, count);
+    cart.push(item);
+    saveCart();
+  }
+  // Set count from item
+  obj.setCountForItem = function(name, count) {
+    for(var i in cart) {
+      if (cart[i].name === name) {
+        cart[i].count = count;
+        break;
+      }
+    }
+  };
+  // Remove item from cart
+  obj.removeItemFromCart = function(name) {
+      for(var item in cart) {
+        if(cart[item].name === name) {
+          cart[item].count --;
+          if(cart[item].count === 0) {
+            cart.splice(item, 1);
+          }
+          break;
+        }
+    }
+    saveCart();
+  }
+
+  // Remove all items from cart
+  obj.removeItemFromCartAll = function(name) {
+    for(var item in cart) {
+      if(cart[item].name === name) {
+        cart.splice(item, 1);
+        break;
+      }
+    }
+    saveCart();
+  }
+
+  // Clear cart
+  obj.clearCart = function() {
+    cart = [];
+    saveCart();
+  }
+
+  // Count cart 
+  obj.totalCount = function() {
+    var totalCount = 0;
+    for(var item in cart) {
+      totalCount += cart[item].count;
+    }
+    return totalCount;
+  }
+
+  // Total cart
+  obj.totalCart = function() {
+    var totalCart = 0;
+    for(var item in cart) {
+      totalCart += cart[item].price * cart[item].count;
+    }
+    return Number(totalCart.toFixed(2));
+  }
+
+  // List cart
+  obj.listCart = function() {
+    var cartCopy = [];
+    for(i in cart) {
+      item = cart[i];
+      itemCopy = {};
+      for(p in item) {
+        itemCopy[p] = item[p];
+
+      }
+      itemCopy.total = Number(item.price * item.count).toFixed(2);
+      cartCopy.push(itemCopy)
+    }
+    return cartCopy;
+  }
+
+  // cart : Array
+  // Item : Object/Class
+  // addItemToCart : Function
+  // removeItemFromCart : Function
+  // removeItemFromCartAll : Function
+  // clearCart : Function
+  // countCart : Function
+  // totalCart : Function
+  // listCart : Function
+  // saveCart : Function
+  // loadCart : Function
+  return obj;
+})();
+
+
+// *****************************************
+// Triggers / Events
+// ***************************************** 
+// Add item
+$('.add-to-cart').click(function(event) {
+  event.preventDefault();
+  var name = $(this).data('name');
+  var price = Number($(this).data('price'));
+  shoppingCart.addItemToCart(name, price, 1);
+  displayCart();
+});
+
+// Clear items
+$('.clear-cart').click(function() {
+  shoppingCart.clearCart();
+  displayCart();
+});
+
+
+function displayCart() {
+  var cartArray = shoppingCart.listCart();
+  var output = "";
+  for(var i in cartArray) {
+    output += "<tr>"
+      + "<td>" + cartArray[i].name + "</td>" 
+      + "<td>(" + cartArray[i].price + ")</td>"
+      + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
+      + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
+      + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
+      + "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>"
+      + " = " 
+      + "<td>" + cartArray[i].total + "</td>" 
+      +  "</tr>";
+  }
+  $('.show-cart').html(output);
+  $('.total-cart').html(shoppingCart.totalCart());
+  $('.total-count').html(shoppingCart.totalCount());
+}
+
+// Delete item button
+
+$('.show-cart').on("click", ".delete-item", function(event) {
+  var name = $(this).data('name')
+  shoppingCart.removeItemFromCartAll(name);
+  displayCart();
+})
+
+
+// -1
+$('.show-cart').on("click", ".minus-item", function(event) {
+  var name = $(this).data('name')
+  shoppingCart.removeItemFromCart(name);
+  displayCart();
+})
+// +1
+$('.show-cart').on("click", ".plus-item", function(event) {
+  var name = $(this).data('name')
+  shoppingCart.addItemToCart(name);
+  displayCart();
+})
+
+// Item count input
+$('.show-cart').on("change", ".item-count", function(event) {
+   var name = $(this).data('name');
+   var count = Number($(this).val());
+  shoppingCart.setCountForItem(name, count);
+  displayCart();
+});
+
+displayCart();
+
+    </script>
+</body>
+
+</html>
